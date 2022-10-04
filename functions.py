@@ -35,6 +35,7 @@ def cleanCaracteres(bible):
 
     return bigString.upper()
 
+#Filter Function
 def cleanStoppedWords(text):
     
     if text in stopedWords:
@@ -43,3 +44,4 @@ def cleanStoppedWords(text):
         flag = True
     
     return flag
+

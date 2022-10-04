@@ -12,8 +12,7 @@ bigString = cleanCaracteres(bible)
 bigList = bigString.split(' ')
 filterList = filter(cleanStoppedWords, bigList)
 bigCleanString = ' '.join(filterList)
-print(bigCleanString)
-
 
 endTime = time()
 print(endTime-initTime)
+
