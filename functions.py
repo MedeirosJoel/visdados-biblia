@@ -1,12 +1,15 @@
+from collections import Counter
+import csv
 import json
 
 removeCaracteres = ('.', ',', '!', '?', ':', ';', "{", "}", "(", ")")
-stopedWords = ('NO', 'NA', 'O', 'A', 'E', 'À', 'ÀS', 'DA', 'SEM', 'DE', 'DAS', 'DOS', 'DO', 'SE', 'AS', 'UM', 'UMA', 'UNS', 'UMAS', 'AO', 'NA', 'NOS', 'MAS', 'OS', 'EM', 'PARA', 'É', 'QUE', 'AOS', 'TAMBÉM', 'ENTÃO', 'FOI', 'POIS', 'COMO')
+stopedWords = ('PORQUE', 'POR QUE', 'POR QUÊ', 'PORQUÊ' 'NO', 'NA', 'O', 'A', 'E', 'À', 'ÀS', 'DA', 'SEM', 'DE', 'DAS', 'DOS', 'DO', 'SE', 'AS', 'UM', 'UMA', 'UNS', 'UMAS', 'AO', 'NA', 'NOS', 'MAS', 'OS', 'EM', 'PARA', 'É', 'QUE', 'AOS', 'TAMBÉM', 'ENTÃO', 'FOI', 'POIS', 'COMO')
 
 def readJson(filepatch):
     file = open(filepatch, 'r', encoding='UTF8')
     return json.load(file)
 
+#Clean Caracteres and append Texts
 def cleanCaracteres(bible):
     
     bigString = ''
@@ -42,3 +45,19 @@ def cleanStoppedWords(text):
         flag = True
     
     return flag
+
+def counterWordsaFile(bigCleanList, version, flag=False):
+    countDict = Counter(bigCleanList)
+
+    with open(file=f'csv/{version}.csv', mode='w') as file:
+        writer = csv.writer(file)
+        
+        writer.writerow(['word', 'count'])
+        
+        for key, value in countDict.items():
+            writer.writerow([str(key), str(value)])
+        
+    if flag is True: output = countDict
+    else: output = None
+    
+    return output 

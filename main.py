@@ -18,7 +18,8 @@ def runThread(version, flag=False):
     
     filterList = filter(cleanStoppedWords, bigList)
     bigCleanString = ' '.join(filterList)
-    
+
+    counterWordsaFile(bigCleanString.split(' '), version)
     file = open(f"txt/{version}.txt", 'w', encoding='UTF8')
     file.write(bigCleanString)
     file.close()
@@ -32,6 +33,6 @@ def runThread(version, flag=False):
 
 if "__main__" == __name__:
     for version in versions:
-        tempThread = Thread(target=runThread, name=version, args=(version,))
+        tempThread = Thread(target=runThread, name=version, args=(version, True,))
         process.append(tempThread)
         process[-1].start()
