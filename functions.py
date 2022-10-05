@@ -1,12 +1,10 @@
 import json
 
-from pkg_resources import working_set
-
 removeCaracteres = ('.', ',', '!', '?', ':', ';', "{", "}", "(", ")")
-stopedWords = ("NO", "NA", "O", "A", "E", "À", "ÀS", "DA", "SEM", "DE", "DAS", "DOS", "DO", "SE", "AS", "UM", "UMA", "UNS", "UMAS", "AO", "NA", "NOS", "MAS", "OS", "EM", "PARA", 'É', 'QUE', 'AOS')
+stopedWords = ('NO', 'NA', 'O', 'A', 'E', 'À', 'ÀS', 'DA', 'SEM', 'DE', 'DAS', 'DOS', 'DO', 'SE', 'AS', 'UM', 'UMA', 'UNS', 'UMAS', 'AO', 'NA', 'NOS', 'MAS', 'OS', 'EM', 'PARA', 'É', 'QUE', 'AOS', 'TAMBÉM', 'ENTÃO', 'FOI', 'POIS', 'COMO')
 
 def readJson(filepatch):
-    file = open(filepatch, 'r')
+    file = open(filepatch, 'r', encoding='UTF8')
     return json.load(file)
 
 def cleanCaracteres(bible):
@@ -44,4 +42,3 @@ def cleanStoppedWords(text):
         flag = True
     
     return flag
-
