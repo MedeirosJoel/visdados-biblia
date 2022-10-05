@@ -2,7 +2,7 @@ from collections import Counter
 import csv
 import json
 
-removeCaracteres = ('.', ',', '!', '?', ':', ';', "{", "}", "(", ")")
+removeCaracteres = ('.', ',', '!', '?', ':', ';', "{", "}", "(", ")", "'", '"', '')
 stopedWords = ('PORQUE', 'POR QUE', 'POR QUÊ', 'PORQUÊ' 'NO', 'NA', 'O', 'A', 'E', 'À', 'ÀS', 'DA', 'SEM', 'DE', 'DAS', 'DOS', 'DO', 'SE', 'AS', 'UM', 'UMA', 'UNS', 'UMAS', 'AO', 'NA', 'NOS', 'MAS', 'OS', 'EM', 'PARA', 'É', 'QUE', 'AOS', 'TAMBÉM', 'ENTÃO', 'FOI', 'POIS', 'COMO')
 
 def readJson(filepatch):
