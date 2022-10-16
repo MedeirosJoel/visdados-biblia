@@ -1,6 +1,7 @@
-from threading import Thread
-from time import sleep, time
 from functions import *
+
+from time import sleep, time
+from threading import Thread
 
 initTime = time()
 
