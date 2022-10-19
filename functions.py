@@ -1,16 +1,18 @@
 from collections import Counter
 import csv
 import json
+import os
 
 removeCaracteres = ('.', ',', '!', '?', ':', ';', "{", "}", "(", ")", "'", '"', '')
-stopedWords = ('PORQUE', 'POR QUE', 'POR QUÊ', 'PORQUÊ' 'NO', 'NA', 'O', 'A', 'E', 'À', 'ÀS', 'DA', 'SEM', 'DE', 'DAS', 'DOS', 'DO', 'SE', 'AS', 'UM', 'UMA', 'UNS', 'UMAS', 'AO', 'NA', 'NOS', 'MAS', 'OS', 'EM', 'PARA', 'É', 'QUE', 'AOS', 'TAMBÉM', 'ENTÃO', 'FOI', 'POIS', 'COMO')
+stopedWords = ('LHE', 'PORQUE', 'POR QUE', 'POR QUÊ', 'PORQUÊ' 'NO', 'NA', 'O', 'A', 'E', 'À', 'ÀS', 'DA', 'SEM', 'DE', 'DAS', 'DOS', 'DO', 'SE', 'AS', 'UM', 'UMA', 'UNS', 'UMAS', 'AO', 'NA', 'NOS', 'MAS', 'OS', 'EM', 'PARA', 'É', 'QUE', 'AOS', 'TAMBÉM', 'ENTÃO', 'FOI', 'POIS', 'COMO')
 
-def readJson(filepatch):
+def readJson(version):
+    filepatch = f"json/{version}.json"
     file = open(filepatch, 'r', encoding='UTF8')
     return json.load(file)
 
 #Clean Caracteres and append Texts
-def cleanCaracteres(bible):
+def CleanCaracteres(bible):
     
     bigString = ''
     versiclesList = []
@@ -47,9 +49,13 @@ def cleanStoppedWords(text):
     return flag
 
 def counterWordsaFile(bigCleanList, version, flag=False):
+    
     countDict = Counter(bigCleanList)
+    
+    filepatch = f'csv/{version}.csv'
+    os.remove(filepatch)
 
-    with open(file=f'csv/{version}.csv', mode='w') as file:
+    with open(file=filepatch, mode='w', newline='') as file:
         writer = csv.writer(file)
         
         writer.writerow(['word', 'count'])
