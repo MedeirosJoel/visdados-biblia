@@ -13,7 +13,7 @@
   - Arquivos na pasta csv contém a ocorrencia de cada palavra no texto
   - Documentos na pasta txt contém o texto limpo e em uma unica linha
 
-(Apresentação capitlo do livro)[https://docs.google.com/presentation/d/14KBrYTzJxmIBxfJwdGGcgl1MfkHVm5aOyFoPA8bFeKM/edit?usp=sharing]
+[Apresentação capitlo do livro](https://docs.google.com/presentation/d/14KBrYTzJxmIBxfJwdGGcgl1MfkHVm5aOyFoPA8bFeKM/edit?usp=sharing)
 
 ## Materiais Adicionais
 
